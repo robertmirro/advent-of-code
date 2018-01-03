@@ -24,8 +24,8 @@
     const day2_1 = input => {
         return input.trim().split('\n').reduce((result, value) => {
             return result += value.trim().split('\t').reduce((result, value, index, array) => {
-                result.high = Math.max(result.high || 0, Number.parseInt(value));
-                result.low = Math.min(result.low || Number.parseInt(value), Number.parseInt(value));
+                result.high = Math.max(result.high || 0, parseInt(value));
+                result.low = Math.min(result.low || parseInt(value), parseInt(value));
                 return index === array.length - 1 ? Math.abs(result.high - result.low) : result;
             }, {});
         }, 0);
@@ -52,8 +52,8 @@
     };
 
     const day2_1_refactored = input => processInput(input, () => ({}), (result, value, index, array) => {
-        result.high = Math.max(result.high || 0, Number.parseInt(value));
-        result.low = Math.min(result.low || Number.parseInt(value), Number.parseInt(value));
+        result.high = Math.max(result.high || 0, parseInt(value));
+        result.low = Math.min(result.low || parseInt(value), parseInt(value));
         return index === array.length - 1 ? Math.abs(result.high - result.low) : result;
     });
     console.log('checksum 1 refactored:', day2_1_refactored(input));
